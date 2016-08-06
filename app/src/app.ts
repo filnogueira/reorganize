@@ -105,8 +105,8 @@ class Model {
   }
 
   public getMoveCommand(): string {
-    return "mv " + path.join(this.rootpath, this.filename) + " " + path.join(this.correctDir, this.filename) + " - " + 
-          moment(this.dirdate).format("YYYY-MM-DD") + " - " + moment(this.filedate).format("YYYY-MM-DD") + " - " + this.dif;
+    return "mkdir -p " + this.correctDir.replace(" ", "\\ ") + "; mv -i " + path.join(this.rootpath, this.filename).replace(" ", "\\ ") + " $_ ";//|| " + 
+          //moment(this.dirdate).format("YYYY-MM-DD") + " - " + moment(this.filedate).format("YYYY-MM-DD") + " - " + this.dif;
   }
 }
 
